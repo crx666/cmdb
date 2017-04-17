@@ -19,22 +19,23 @@ author：学神IT-Python-VIP-1611班-狗哥
 
 CMDB资产管理：
 用户登录:
+
 	用户登录
 	用户注册
 	用户修改密码
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/login.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/login.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/register.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/register.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/password.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/password.png)
+![](http://i.imgur.com/UctwvIJ.png)
+![](http://i.imgur.com/JEP5FM1.png)
+![](http://i.imgur.com/C9956Wp.png)
+
 资产管理:
 
 	 资产列表
 	 资产添加
 	 资产修改和删除
  
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/totlist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/totlist.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/addlist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/addlist.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/reviselist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/reviselist.png)
-
+![](http://i.imgur.com/ItTktce.png)
+![](http://i.imgur.com/W4KQFcO.jpg)
+![](http://i.imgur.com/LUhSGo3.png)
 
 主机管理:
 
@@ -42,10 +43,10 @@ CMDB资产管理：
 	 主机详情页
 	 主机添加
 	 主机修改和删除
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/hostlist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/hostlist.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/hostdis.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/hostdis.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/addhost.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/addhost.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/revisehost.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/revisehost.png)
+![](http://i.imgur.com/UhVxyll.png)
+![](http://i.imgur.com/R4P7wVr.png)
+![](http://i.imgur.com/6LghGd1.png)
+![](http://i.imgur.com/u8aRxBo.png)
 
 
 远程管理:
@@ -55,23 +56,23 @@ CMDB资产管理：
 	 客户端远程登录
 	 客户端web shell
 	
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/localhostlist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/localhostlist.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/chart.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/chart.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/localhostlogin.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/localhostlogin.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/webshell.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/webshell.png)
+![](http://i.imgur.com/nihP4pT.png)
+![](http://i.imgur.com/o7Zxskt.png)
+![](http://i.imgur.com/CN1YytD.jpg)
+![](http://i.imgur.com/9eLBx9Z.png)
 	
 用户管理:
 
 	 用户列表
 	 用户添加
 	 角色列表
+	 角色修改
+	 角色添加
 	 角色成员管理
-	 修改角色
 	
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/userlist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/userlist.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/adduser.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/adduser.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/rolelist.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/rolelist.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/member.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/member.png)
-[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/reviserole.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/reviserole.png)
-
+![](http://i.imgur.com/4n5L029.png)
+![](http://i.imgur.com/IFFt54Y.png)
+![](http://i.imgur.com/gpmcj4M.png)
+![](http://i.imgur.com/kPZfBDm.png)
+![](http://i.imgur.com/PhPBftp.png)
 	
