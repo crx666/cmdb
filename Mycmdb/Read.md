@@ -22,9 +22,9 @@ CMDB资产管理：
 	用户登录
 	用户注册
 	用户修改密码
-![](http://i.imgur.com/UctwvIJ.png)
-![](http://i.imgur.com/JEP5FM1.png)
-![](http://i.imgur.com/C9956Wp.png)
+[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/login.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/login.png)
+[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/register.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/register.png)
+[https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/password.png](https://github.com/crx666/cmdb/blob/master/Mycmdb/static/image/password.png)
 资产管理:
 
 	 资产列表
