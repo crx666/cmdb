@@ -1,0 +1,132 @@
+{% extends 'tables.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    资产管理
+{% endblock %}
+
+{% block right %}
+    <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                  <div class="x_title">
+                    <h2>详细信息</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table class="table table-hover" style="color:black;font-size: 15px;">
+                            <tr>
+                                <th>
+                                    主机名:
+                                </th>
+                                <td>
+                                    {{ obj.hostname }}
+                                </td>
+                                <th>
+                                    Ip地址:
+                                </th>
+                                <td>
+                                    {{ obj.ip }}
+                                </td>
+                                <th>
+                                    物理地址:
+                                </th>
+                                <td>
+                                    {{ obj.Mac }}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                 <th>
+                                    CPU:
+                                </th>
+                                <td>
+                                    {{ obj.cpu }}
+                                </td>
+                                <th>
+                                    运行内存:
+                                </th>
+                                <td>
+                                    {{ obj.Mem }}
+                                </td>
+                                <th>
+                                    磁盘空间:
+                                </th>
+                                <td>
+                                    {{ obj.Disk }}
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    上次登录用户:
+                                </th>
+                                <td>
+                                    {{ obj.lastLoginUser }}
+                                </td>
+                                <th>
+                                    上次登录时间:
+                                </th>
+                                <td>
+                                    {{ obj.lastLogin }}
+                                </td>
+                                <th>
+                                    IO:
+                                </th>
+                                <td>
+                                    {{ obj.IO }}
+                                </td>
+                        </tr>
+                        <tr>
+                             <th>
+                                    操作系统:
+                                </th>
+                                <td>
+                                    {{ obj.system }}
+                                </td>
+                            <th>
+                                是否激活:
+                            </th>
+                            <td>
+                                {{ obj.isActive }}
+                            </td>
+                             <th>
+
+                            </th>
+                            <td>
+
+                            </td>
+
+                        </tr>
+                        </table>
+
+                  </div>
+
+                    </div>
+                             <a href="/Hardware/list"><button type="button" class="btn btn-primary" style="float: right">返回</button></a>
+
+                    </div>
+                </div>
+{% endblock %}

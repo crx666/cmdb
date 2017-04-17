@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    用户管理
+{% endblock %}
+
+{% block right %}
+    <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>用户列表</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                       <a href="/User/useradd" style="font-size: 15px;"><i class="fa fa-check"></i>添加用户</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action" style="color:black;font-size: 15px">
+                        <thead>
+                          <tr class="headings">
+                            <th class="column-title">用户名称 </th>
+                            <th class="column-title">email</th>
+                            <th class="column-title">联系方式</th>
+                               <th class="column-title">创建时间</th>
+                              <th class="column-title">最近登录时间</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in user %}
+                          <tr class="even pointer">
+                            <td class=" ">{{ i.name }}</td>
+                            <td class=" ">{{ i.email }}</td>
+                            <td class="a-right a-right ">{{ i.phone }}</td>
+                              <td class=" ">{{ i.make_time }}</td>
+                            <td class=" ">{{ time }}</td>
+                          </tr>
+
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+              </div>
+    </div>
+{% endblock %}

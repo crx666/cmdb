@@ -1,0 +1,103 @@
+{% extends 'text.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    用户管理
+{% endblock %}
+
+{% block right%}
+    <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                      <h2>成员管理</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                    <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" action="" method="post">
+                      <span class="section">角色名称:{{ role.role_name }}</span>
+                        <div class="item form-group" >
+                            <label for="" class="col-sm-2 control-label"></label>
+                            <label for="" class="col-sm-3 pull-left" style="font-size: 15px;margin-left: 90px;">所有成员</label>
+                            <label for="" class="col-sm-4" style="font-size: 15px;margin-left: 70px;">权限组用户</label>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-2"></label>
+                    <div class="col-sm-10">
+                        <select name="groups" id="groups" class="col-sm-2" multiple="multiple" size="12" style="width: 250px;font-size: 15px">
+                            {% for user in userall %}
+                                {% if user not in role_user %}
+                                    <option value="{{ user.id }}">{{ user.name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <div class="col-sm-1" style="text-align: center;margin-top: 7%">
+                            <div>
+                                <button type="button" onclick="move_right('groups', 'groups_selected')"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                            </div>
+                            &nbsp;
+                            <div>
+                                <button type="button" onclick="move_left('groups_selected', 'groups')"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                            </div>
+                        </div>
+                        <select name="groups_selected" id="groups_selected" class="col-sm-2" multiple="multiple" size="12" style="width: 249px;font-size: 15px">
+                            {% for user in role_user %}
+                                <option value="{{ user.id}}" selected>{{ user.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer" style="margin-right: 100px">
+                <button type="submit" class="btn btn-info pull-right">保存</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+                    </form>
+                    </div>
+                    </div>
+              </div>
+     <script>
+        function move_left(from, to) {
+        $("#"+from+" option").each(function(){
+            if ( $(this).prop("selected") == true ) {
+                $("#"+to).append(this);
+                $(this).attr("selected",'false');
+            }
+{#            $(this).attr("selected",'true');#}
+        });
+    }
+    function move_right(from, to) {
+        $("#"+from+" option").each(function(){
+            if ( $(this).prop("selected") == true ) {
+                $("#"+to).append(this);
+            }
+        });
+    }
+    </script>
+{% endblock %}

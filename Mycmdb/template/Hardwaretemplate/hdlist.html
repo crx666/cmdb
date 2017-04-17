@@ -1,0 +1,87 @@
+{% extends 'tables.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    资产管理
+{% endblock %}
+
+{% block right %}
+     <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>主机列表 </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <a href="/Hardware/addhost" style="font-size: 15px;"><i class="fa fa-check"></i>添加主机</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action" style="color:black;font-size: 15px">
+                        <thead>
+                          <tr class="headings">
+                            <th class="column-title">主机名 </th>
+                            <th class="column-title">Ip地址</th>
+                            <th class="column-title">CPU</th>
+                            <th class="column-title">内存</th>
+                            <th class="column-title">操作系统</th>
+                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for i in server %}
+                          <tr class="even pointer">
+                            <td class=" "><a href="/Hardware/discri/{{ i.id }}">{{ i.hostname }}</a></td>
+                            <td class=" ">{{ i.ip }}</td>
+                            <td class=" ">{{ i.cpu }}</td>
+                            <td class=" ">{{ i.Mem }}</td>
+                            <td class="a-right a-right ">{{ i.system }}</td>
+                            <td class=" ">
+                                <button>关联</button>
+                                <button id=del" onclick="del({{ i.id }})">删除</button>
+                                <a href="/Hardware/rehost/{{ i.id }}" style="color: black"><button id="revise">修改</button></a>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+
+    <script>
+        function del(id) {
+            $.ajax(
+                {
+                    type:"post",
+                    url:"http://127.0.0.1:8000/Hardware/delhost/",
+                    data:{"id":id},
+                    success:function(data){
+                        if(data["valid"] == "success"){
+                            window.location.reload()
+                        }
+                    },
+                    error:function(err){
+                        console.log(err)
+                    }
+                }
+            )
+        }
+
+
+    </script>
+{% endblock %}

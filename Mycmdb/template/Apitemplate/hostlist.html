@@ -1,0 +1,86 @@
+{% extends 'tables.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    远程管理
+{% endblock %}
+
+{% block right %}
+     <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>虚拟机列表 </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action" style="color:black;font-size: 15px">
+                        <thead>
+                          <tr class="headings">
+                            <th class="column-title">主机名 </th>
+                            <th class="column-title">Ip地址</th>
+                            <th class="column-title">CPU</th>
+                              <th class="column-title">使用内存</th>
+                              <th class="column-title">磁盘空间</th>
+                            <th class="column-title">主机状态</th>
+                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for i in hd %}
+                          <tr class="even pointer">
+                            <td class=" "><a href="/Api/photo/{{ i.id }}">{{ i.name }}</a></td>
+                            <td class=" ">{{ i.ip }}</td>
+                            <td class=" ">{{ i.cpu }}</td>
+                            <td class=" ">{{ i.mem }}%</td>
+                            <td class="a-right a-right ">{{ i.disk }}%</td>
+                              <td class="a-right a-right ">{{ i.status }}</td>
+                            <td class=" ">
+                                 <div class="input-group-btn">
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right" role="menu" style="font-size: 15px">
+                                <li><a href="/Api/login/{{ i.id }}">登录</a>
+                                </li>
+                                  <li><a href="/Api/revise/{{ i.id }}">修改</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="/Api/delete/{{ i.id }}">删除</a>
+                                </li>
+                              </ul>
+                            </div>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+{% endblock %}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+      <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CMDB 登录</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form action="" method="post">
+              <h1>登录 </h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" id="username" name="username"/>
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" id="password" name="password"/>
+              </div>
+              <div>
+                <button class="btn btn-default submit" >登录</button>
+                <a class="reset_pass" href="/User/forget">忘记密码?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a href="#signup" class="to_register"> 注册用户 </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> CMDB 资产管理</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form action="/User/register" method="post">
+              <h1>注册用户</h1>
+              <div>
+
+                <input type="text" class="form-control" placeholder="Username" required="" id="usname" name="usname"/>
+                  <span class="errorlist" style="position: relative;bottom:10px; color: black"></span>
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" id="passwd" name="passwd"/>
+                <span class="errorlist" style="position: relative;bottom:10px; color: black"></span>
+              </div>
+                <div>
+                <input type="email" class="form-control" placeholder="Email" required="" id="email" name="email"/>
+              </div>
+                <div>
+                <input type="text" class="form-control" placeholder="Phone" required="" id="phone" name="phone"/>
+                <span class="errorlist" style="position: relative;bottom:10px; color: black"></span>
+                </div>
+              <div>
+                <button class="btn btn-default submit" id="register1" >注册</button>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> 登录 </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> CMDB 资产管理</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+
+  <script>
+      $(
+           function () {
+               /*<!-- 用户名重复判定设置 -->*/
+               $("#usname").blur(
+                   function () {
+                       var username = $(this).val();
+                       if (username) {
+                           var json_data = {"username": username};
+                           $.ajax(
+                               {
+                                   url: "http://127.0.0.1:8000/User/uservalid",
+                                   type: "post",
+                                   data: json_data,
+                                   beforeSend: function () {
+                                   },
+                                   async: true,
+                                   success: function (data) {
+                                       if (data['valid'] == "false") {
+                                           $("#usname").siblings("span.errorlist").text('用户名不能重复')
+                                       }
+                                       else {
+                                           $("#usname").siblings("span.errorlist").text('')
+                                       }
+                                   },
+                                   error: function (err) {
+                                       alert(err)
+                                   }
+                               }
+                           )
+
+                       }
+                   }
+               );
+
+
+               /* <!-- 验证密码长度是否小于6-->*/
+               $("#passwd").blur(
+                   function () {
+                       var password = $(this).val();
+                       if (password) {
+                           if (password.length < 6) {
+                               $("#passwd").siblings("span.errorlist").text('密码不能小于6位')
+                           }
+                           else {
+                               $("#passwd").siblings("span.errorlist").text('')
+                           }
+                       }
+
+                   }
+               );
+
+
+               $("#phone").blur(
+                   function () {
+                       var phone = $(this).val();
+                       if (phone) {
+                           if (isNaN(phone)) {
+                               $("#phone").siblings("span.errorlist").text('手机号为11位纯数字')
+                           }
+                           else {
+                               if (phone.length != 11) {
+                                   $("#phone").siblings("span.errorlist").text('手机号必须为11位')
+                               }
+                               else {
+                                   $("#phone").siblings("span.errorlist").text('')
+                               }
+
+                           }
+                       }
+
+                   }
+               );
+
+
+               //前端限制重复用户名完毕
+               $('#register1').click(function () {
+                       var username = $("#usname").val();
+                       var phone = $('#phone').val()
+                       var json_data = {"username":username};
+                       var json_data1 = {"phone":phone};
+                        $.ajax(
+                            {
+                                url:'http://127.0.0.1:8000/User/uservalid',
+                                type:'post',
+                                data:json_data,
+                                async:true,
+                                beforeSend:function () {},
+                                success:function (data) {
+
+                                    if(data['valid']=='false'){
+                                        alert('此用户名已被注册，请重试')
+                                    }
+                                    else {}
+                                },
+                                error:function (err) {
+                                    alert(err)
+                                }
+
+                            }
+                    );
+                   }
+               )
+           }
+      )
+
+
+
+  </script>
+
+  </body>
+</html>

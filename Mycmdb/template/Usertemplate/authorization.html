@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    用户管理
+{% endblock %}
+
+{% block right %}
+      <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                      <h2>权限管理</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                    <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" action="" method="post">
+                         <span class="section">角色名称:{{ role.role_name }}</span>
+                      <div class="form-group" style="font-size: 15px">
+                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">所有权限名:
+                        </label>
+
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <div class="checkbox">
+                            <label>
+                              <div class="icheckbox_flat-green checked" style="position: relative;">
+                                  <input type="checkbox" class="flat" checked="checked" style="position: absolute; opacity: 0;">
+                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                  </ins>
+                              </div>
+                                {{  }}
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Unchecked
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <div class="icheckbox_flat-green disabled" style="position: relative;"><input type="checkbox" class="flat" disabled="disabled" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Disabled
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <div class="icheckbox_flat-green checked disabled" style="position: relative;"><input type="checkbox" class="flat" disabled="disabled" checked="checked" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Disabled &amp; checked
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+                </div>
+              </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'tables.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    资产管理
+{% endblock %}
+
+{% block right %}
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>资产列表</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <a href="/Hardware/assets" style="font-size: 15px;"><i class="fa fa-check"></i>添加资产</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" style="color: black; font-size: 15px">
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                            <th>序列号</th>
+                          <th>名称</th>
+                          <th>类型</th>
+                          <th>ip</th>
+                          <th>业务方向</th>
+                          <th>状态</th>
+                          <th>管理</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody>
+                      {% for i in asset %}
+                        <tr>
+                            <td>{{ i.number }}</td>
+                          <td>{{ i.name }}</td>
+                          <td>{{ i.type }}</td>
+                          <td>{{ i.ip }}</td>
+                          <td>{{ i.service }}</td>
+                          <td>{{ i.statue }}</td>
+                          <td><div class="input-group-btn">
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right" role="menu" style="font-size: 15px">
+
+                                <li><a href="/User/member/{{ i.id }}">关联</a>
+                                </li>
+                                  <li><a href="/Hardware/reasset/{{ i.id }}">修改</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="/Hardware/delete/{{ i.id }}">删除</a>
+                                </li>
+                              </ul>
+                            </div></td>
+                        </tr>
+
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+{% endblock %}

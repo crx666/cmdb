@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    用户管理
+{% endblock %}
+
+{% block right %}
+    <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                      <h2>角色列表</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <a href="/User/addrole"><i class="fa fa-check"></i>添加角色</a>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action" style="color:black;font-size: 15px">
+                        <thead>
+                          <tr class="headings">
+                            <th class="column-title">角色名称 </th>
+                            <th class="column-title">角色描述</th>
+                              <th class="column-title">状态</th>
+                              <th class="column-title">人数</th>
+                            <th class="column-title">管理</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in role %}
+                          <tr class="even pointer">
+                            <td class=" ">{{ i.role_name }}</td>
+                            <td class=" ">{{ i.role_dis }}</td>
+                            <td class="a-right a-right ">{{ i.enable }}</td>
+                            <td class=" ">
+                                {% for k,v in group_user_count.items %}
+                                    {% ifequal k i.id %}
+                                        {{ v }}
+                                    {% endifequal %}
+                                {% endfor %}
+
+                            </td>
+                            <td>
+                                <div class="input-group-btn">
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right" role="menu" style="font-size: 15px">
+                                <li><a href="/User/authorization/{{ i.id }}">权限管理</a>
+                                </li>
+                                <li><a href="/User/member/{{ i.id }}">成员管理</a>
+                                </li>
+                                  <li><a href="/User/revise/{{ i.id }}">修改</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="/User/delete/{{ i.id }}">删除</a>
+                                </li>
+                              </ul>
+                            </div>
+                            </td>
+                          </tr>
+
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+              </div>
+    </div>
+
+{% endblock %}

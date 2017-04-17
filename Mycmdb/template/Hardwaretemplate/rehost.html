@@ -1,0 +1,179 @@
+{% extends 'tables.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    资产管理
+{% endblock %}
+
+{% block right %}
+    <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12" >
+                    <div class="x_panel">
+                  <div class="x_title">
+                    <h2>修改信息</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table class="table table-hover" style="color:black;font-size: 15px;">
+                            <tr>
+
+                                <th>
+                                    主机名:
+                                </th>
+                                <td>
+                                    <input type="text" id='hostname' value="{{ obj.hostname }}">
+                                </td>
+                                <th>
+                                    Ip地址:
+                                </th>
+                                <td>
+                                     <input type='text' id='ip' value="{{ obj.ip }}">
+                                </td>
+                                 <th>
+                                    物理地址:
+                                </th>
+                                <td>
+                                     <input type="text" id='mac' value="{{ obj.Mac }}">
+                                </td>
+                            </tr>
+
+
+                            <tr>
+
+                                 <th>
+                                    CPU:
+                                </th>
+                                <td>
+                                     <input type="text" id='cpu' value="{{ obj.cpu }}">
+                                </td>
+                                <th>
+                                    运行内存:
+                                </th>
+                                <td>
+                                     <input type="text" id='mem' value="{{ obj.Mem }}">
+                                </td>
+                                <th>
+                                    磁盘空间:
+                                </th>
+                                <td>
+                                     <input type="text" id='disk' value="{{ obj.Disk }}">
+                                </td>
+
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    IO:
+                                </th>
+                                <td>
+                                     <input type="text" id='io' value="{{ obj.IO }}">
+                                </td>
+                                <th>
+                                    操作系统:
+                                </th>
+                                <td>
+                                     <input type="text" id='system' value="{{ obj.system }}">
+                                </td>
+                                <th>
+                                是否激活:
+                            </th>
+                            <td>
+                                 <input type="text"  id='active' value="{{ obj.isActive }}">
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <th>
+                                    上次登录用户:
+                                </th>
+                                <td>
+                                     <input type="text"  id='last_user' value="{{ obj.lastLoginUser }}">
+                                </td>
+                                <th>
+                                    上次登录时间:
+                                </th>
+                                <td>
+                                     <input type="text" id='last_login' value="{{ obj.lastLogin }}">
+                                </td>
+
+                        </tr>
+                        </table>
+
+                  </div>
+                    </div>
+                </div>
+                <div style="float: right">
+                    <button id="send" type="submit"  class="btn btn-success" onclick="revise({{ obj.id }})">保存</button>
+                    <a href="/Hardware/list"><button type="button" class="btn btn-primary" >返回</button></a>
+                </div>
+
+              </div>
+    <script>
+            function revise(id) {
+                var hostname = $('#hostname').val();
+                var ip = $('#ip').val();
+                var mem = $('#mem').val();
+                var io = $('#io').val();
+                var last_login = $('#last_login').val();
+                var last_user = $('#last_user').val();
+                var disk = $('#disk').val();
+                var cpu = $('#cpu').val();
+                var system = $('#system').val();
+                var active = $('#active').val();
+                var mac = $('#mac').val();
+                var dic = {
+                    'id': id,
+                    'hostname': hostname,
+                    'ip': ip,
+                    'mem': mem,
+                    'io': io,
+                    'last_login': last_login,
+                    'last_user': last_user,
+                    'disk': disk,
+                    'cpu': cpu,
+                    'system': system,
+                    'active': active,
+                    'mac': mac,
+                };
+            $.ajax(
+                {
+                    type:'post',
+                    url:"http://127.0.0.1:8000/Hardware/revise/",
+                    data:dic,
+                    success:function (data) {
+                        if(data['valid']=='success'){
+                              window.location.reload()
+                        }
+                    },
+                    error:function (err) {
+                        alert(err)
+                    }
+                }
+            )
+
+        }
+
+    </script>
+{% endblock %}

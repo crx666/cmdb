@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    {{ username }}
+{% endblock %}
+
+{% block user %}
+    {{ username }}
+{% endblock %}
+
+{% block title %}
+    资产管理
+{% endblock %}
+
+{% block right %}
+    <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>添加主机</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" action="" method="post">
+                      <span class="section">主机信息</span>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">主机名<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="hostname" class="form-control col-md-7 col-xs-12"  name="hostname"  required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Ip地址 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="ip" name="ip" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">物理地址<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="mac" name="mac"  required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">CPU <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="cpu" name="cpu" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">运行内存<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="mem" name="mem" required="required"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">磁盘空间<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="disk" type="text" name="disk"  class="optional form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label for="password" class="control-label col-md-3">操作系统<span class="required">*</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="system" type="text" name="system" class="form-control col-md-7 col-xs-12" required="required">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">IO<span class="required">*</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="io" type="text" name="io" class="form-control col-md-7 col-xs-12" required="required">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone"><span class="required">上次登陆用户</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last_user" name="last_user" required="required"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                        <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone"><span class="required">上次登陆时间</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last_time" name="last_time" required="required"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                        <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone"><span class="required">是否激活</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="active" name="active" required="required"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3" style="margin: 0 40% 0 40%" >
+                            <button id="send" type="submit" class="btn btn-success">保存</button>
+                            <a href="/Hardware/list"><button type="button" class="btn btn-primary" >返回</button></a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+{% endblock %}
